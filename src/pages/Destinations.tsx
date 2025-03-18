@@ -1,20 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
-// Mock destinations data until ../data/destinations is created
-const destinations = [
-  {
-    id: 1,
-    name: "Lunar Orbit",
-    description: "Experience weightlessness while orbiting Earth's moon",
-    price: "$250,000",
-    duration: "5 days",
-    image: "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0",
-    features: ["Zero gravity", "Moon views", "Space training"]
-  },
-  // Add more mock destinations as needed
-];
+import { destinations } from '../data/destinations';
 
 const Destinations: React.FC = () => {
   return (
