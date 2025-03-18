@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-luxury-white text-luxury-dark font-sf-pro;
+  }
+}
+
+@layer components {
+  .luxury-card {
+    @apply bg-white rounded-2xl p-8 shadow-luxury border border-luxury-gray/20 hover:border-black/20 transition-all duration-500;
+  }
+  
+  .luxury-button {
+    @apply bg-black text-white font-medium px-8 py-4 rounded-full hover:bg-white transition-all duration-300 text-sm tracking-wide relative overflow-hidden min-w-[180px] text-center;
+  }
+
+  .luxury-button::before {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-300;
+  }
+
+  .luxury-button:hover::before {
+    @apply opacity-100;
+  }
+
+  .luxury-button span {
+    @apply relative z-10;
+  }
+
+  .luxury-button:hover span {
+    @apply text-black;
+  }
+
+  .luxury-button-outline {
+    @apply border-2 border-black text-black font-medium px-8 py-3 rounded-full hover:bg-black hover:text-white hover:border-black transition-all duration-300 text-sm tracking-wide relative overflow-hidden min-w-[180px] text-center;
+  }
+
+  .luxury-button-outline::before {
+    content: '';
+    @apply absolute inset-0 bg-black opacity-0 transition-opacity duration-300;
+  }
+
+  .luxury-button-outline:hover::before {
+    @apply opacity-100;
+  }
+
+  .luxury-button-outline span {
+    @apply relative z-10;
+  }
+  
+  .luxury-input {
+    @apply bg-white border border-luxury-gray/20 rounded-xl px-4 py-3 focus:outline-none focus:border-black text-luxury-dark;
+  }
+
+  .luxury-heading {
+    @apply text-5xl font-bold tracking-tight text-black;
+  }
+
+  .luxury-subheading {
+    @apply text-xl text-black/80;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F5F7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000000/90;
+} 
