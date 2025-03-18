@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { fileURLToPath } from 'url'
-import { dirname, resolve } from 'path'
+import { fileURLToPath } from 'node:url'
+import { dirname, resolve } from 'node:path'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -16,6 +16,19 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true
-  }
+    sourcemap: true,
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          const extType = assetInfo.name?.split('.').pop() || 'unknown';
+          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
+            return `assets/img/[name]-[hash][extname]`;
+          }
+          return `assets/${extType}/[name]-[hash][extname]`;
+        },
+      },
+    },
+  },
+  publicDir: 'public'
 })
